@@ -90,8 +90,7 @@ def main():
         out/'comparison.csv', index=False)
     report = render_report(args, coverage, reward_metrics, metrics, rollouts, traces, time.time() - start, confidence)
     (out/'REPORT.md').write_text(report, encoding='utf-8')
-    (Path(__file__).resolve().parent/'README.md').write_text(report, encoding='utf-8')
-    print('Отчёт: README.md; результаты:', out.resolve(), flush=True)
+    print('Отчёт сохранён в:', (out/'REPORT.md').resolve(), flush=True)
     print(pd.read_csv(out/'comparison.csv').to_string(index=False), flush=True)
 
 
