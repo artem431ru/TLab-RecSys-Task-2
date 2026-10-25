@@ -1,0 +1,127 @@
+{
+  "coverage": {
+    "selected_users": 6000,
+    "catalog_size": 600,
+    "rows_in_catalog_users": 45450,
+    "examples": {
+      "train": 5000,
+      "val": 300,
+      "test": 300
+    },
+    "note": "All metrics on head-catalog, sampled users and filtered events only."
+  },
+  "reward_model": {
+    "val": {
+      "n": 300,
+      "mae": 0.3301212928382059,
+      "rmse": 0.3721290896718266,
+      "constant_mean_baseline_mae": 0.37116794666666664,
+      "pearson_r": 0.33706112884100853
+    },
+    "test": {
+      "n": 300,
+      "mae": 0.3553371707412104,
+      "rmse": 0.3917984142920364,
+      "constant_mean_baseline_mae": 0.37852293333333337,
+      "pearson_r": 0.2549014068570261
+    }
+  },
+  "evaluation": {
+    "val": {
+      "GPT-2 SFT": {
+        "queries": 300,
+        "recall@10": 0.24667,
+        "ndcg@10": 0.15248,
+        "catalog_coverage@10": 0.04,
+        "top1_share_of_top10_exposures": 0.08933,
+        "predicted_reward_top1": 0.5661
+      },
+      "RL: raw watched_pct": {
+        "queries": 300,
+        "recall@10": 0.25,
+        "ndcg@10": 0.15734,
+        "catalog_coverage@10": 0.04,
+        "top1_share_of_top10_exposures": 0.086,
+        "predicted_reward_top1": 0.57744
+      },
+      "RL: novelty penalty": {
+        "queries": 300,
+        "recall@10": 0.25,
+        "ndcg@10": 0.14872,
+        "catalog_coverage@10": 0.04,
+        "top1_share_of_top10_exposures": 0.08667,
+        "predicted_reward_top1": 0.5987
+      }
+    },
+    "test": {
+      "GPT-2 SFT": {
+        "queries": 300,
+        "recall@10": 0.19667,
+        "ndcg@10": 0.1295,
+        "catalog_coverage@10": 0.04167,
+        "top1_share_of_top10_exposures": 0.08933,
+        "predicted_reward_top1": 0.5701
+      },
+      "RL: raw watched_pct": {
+        "queries": 300,
+        "recall@10": 0.19333,
+        "ndcg@10": 0.12434,
+        "catalog_coverage@10": 0.04,
+        "top1_share_of_top10_exposures": 0.08433,
+        "predicted_reward_top1": 0.57617
+      },
+      "RL: novelty penalty": {
+        "queries": 300,
+        "recall@10": 0.19667,
+        "ndcg@10": 0.12808,
+        "catalog_coverage@10": 0.04167,
+        "top1_share_of_top10_exposures": 0.08433,
+        "predicted_reward_top1": 0.59628
+      }
+    }
+  },
+  "five_step_rollout_predicted_reward": {
+    "GPT-2 SFT": [
+      0.57598,
+      0.56074,
+      0.59999,
+      0.46367,
+      0.36673
+    ],
+    "RL: raw watched_pct": [
+      0.58366,
+      0.57505,
+      0.61116,
+      0.55638,
+      0.43506
+    ],
+    "RL: novelty penalty": [
+      0.6067,
+      0.658,
+      0.53161,
+      0.52213,
+      0.43538
+    ]
+  },
+  "config": {
+    "data": "..\\recsys_research\\data\\interactions.csv",
+    "out": "results",
+    "users": 6000,
+    "items": 600,
+    "max_train": 5000,
+    "max_eval": 300,
+    "epochs": 1,
+    "rm_epochs": 2,
+    "rl_steps": 40,
+    "batch": 64,
+    "ctx": 16,
+    "lr": 0.0005,
+    "rl_lr": 5e-05,
+    "kl": 0.1,
+    "anchor": 0.1,
+    "novelty_coef": 0.15,
+    "rollout_users": 30,
+    "seed": 42,
+    "device": "auto"
+  }
+}

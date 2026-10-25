@@ -1,0 +1,7 @@
+split,model,queries,recall@10,ndcg@10,catalog_coverage@10,top1_share_of_top10_exposures,predicted_reward_top1
+val,GPT-2 SFT,300,0.24667,0.15248,0.04,0.08933,0.5661
+val,RL: raw watched_pct,300,0.25,0.15734,0.04,0.086,0.57744
+val,RL: novelty penalty,300,0.25,0.14872,0.04,0.08667,0.5987
+test,GPT-2 SFT,300,0.19667,0.1295,0.04167,0.08933,0.5701
+test,RL: raw watched_pct,300,0.19333,0.12434,0.04,0.08433,0.57617
+test,RL: novelty penalty,300,0.19667,0.12808,0.04167,0.08433,0.59628
